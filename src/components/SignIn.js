@@ -62,19 +62,22 @@ export default function SignIn({ setName }) {
             margin="normal"
             required
             fullWidth
-            id="name"
+            id="nickname"
             label="ニックネーム"
-            name="name"
+            name="nickname"
             autoFocus
             onChange={(e) => setString(e.target.value)}
           />
           <Button
-            type="submit"
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
             disabled={d}
+            onClick={() => {
+              setName(s);
+            }}
           >
             はじめる
           </Button>
