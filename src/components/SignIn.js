@@ -39,11 +39,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn({ setName }) {
+export default function SignIn({ setNickname }) {
   const classes = useStyles();
   const [d, setDisabled] = useState(true);
   const [s, setString] = useState("");
-  console.log({d, s});
+  const [c, setIsComposed] = useState(false);
+  //console.log({d, s, c});
   useEffect(() => {
     const d = (s === '')
     setDisabled(d)
@@ -68,12 +69,14 @@ export default function SignIn({ setName }) {
             autoFocus
             onChange={(e) => setString(e.target.value)}
             onKeyDown={(e) => {
-              //console.log({key: e.key})
+              if (c) return;
               if (e.key === 'Enter'){
-                setName(e.target.value);
+                setNickname(e.target.value);
                 e.preventDefault();
               }
             }}
+            onCompositionStart={() => setIsComposed(true)}
+            onCompositionEnd={() => setIsComposed(false)}
           />
           <Button
             type="button"
@@ -83,7 +86,7 @@ export default function SignIn({ setName }) {
             className={classes.submit}
             disabled={d}
             onClick={() => {
-              setName( s )
+              setNickname( s )
             }}
           >
             はじめる

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 
+import Main from './Main.js';
 import SignIn from './SignIn';
 
 export default () => {
-  const [nickname, setName] = useState('');
+  const [nickname, setNickname] = useState('');
   console.log({ nickname });
 
-  return <SignIn setName={setName} />;
+  if (nickname === ''){
+    return <SignIn setNickname={setNickname} />;
+  } else {
+    return <Main nickname={nickname} />;
+  }
 };
