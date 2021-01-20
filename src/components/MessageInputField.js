@@ -1,7 +1,15 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    root: {
+        gridRow: 2,
+    },
+});
 
 const MessageInputField = () => {
-    return <div>Message Input Field</div>
+    const classes = useStyles();
+    return <div className={classes.root}>Message Input Field</div>
 };
 
 export default MessageInputField;
