@@ -12,7 +12,7 @@ const MessageField = ({nickname, setText, text}) => {
             onKeyDown={(e) => {
                 if (c) return;
                 const t = e.target.value;
-                if (t == "") return;
+                if (t === "") return;
                 if (e.key === 'Enter'){
                     pushMessage({ nickname: 'Jay', text });
                     setText('')

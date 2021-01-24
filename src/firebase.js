@@ -1,13 +1,23 @@
 import firebase from 'firebase'
 
+const {
+    REACT_APP_FIREBASE_APIKEY,
+    REACT_APP_FIREBASE_AUTHDOMAIN,
+    REACT_APP_FIREBASE_PROJECTID,
+    REACT_APP_FIREBASE_STORAGEBUCKET,
+    REACT_APP_FIREBASE_MESSAGINGSENDERID,
+    REACT_APP_FIREBASE_APPID,
+} = process.env;
+
 const firebaseConfig = {
-    apiKey: "AIzaSyDZ2c7MhuQ8OzvHJczy6P8VpRZ9MaSBuOE",
-    authDomain: "idobatakaigi1-e2a16.firebaseapp.com",
-    projectId: "idobatakaigi1-e2a16",
-    storageBucket: "idobatakaigi1-e2a16.appspot.com",
-    messagingSenderId: "324612535738",
-    appId: "1:324612535738:web:0be8b0e763f91928bb5983"
+    apiKey: REACT_APP_FIREBASE_APIKEY,
+    authDomain: REACT_APP_FIREBASE_AUTHDOMAIN,
+    projectId: REACT_APP_FIREBASE_PROJECTID,
+    storageBucket: REACT_APP_FIREBASE_STORAGEBUCKET,
+    messagingSenderId: REACT_APP_FIREBASE_MESSAGINGSENDERID,
+    appId: REACT_APP_FIREBASE_APPID,
 };
+
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const messagesRef = database.ref('messages');
