@@ -15,7 +15,7 @@ const MessageField = ({nickname, setText, text}) => {
                 if (t === "") return;
                 if (e.key === 'Enter'){
                     pushMessage({ nickname: 'Jay', text });
-                    setText('')
+                    setText('');
                     e.preventDefault();
                 }
             }} 

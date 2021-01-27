@@ -23,5 +23,6 @@ const database = firebase.database();
 const messagesRef = database.ref('messages');
 
 export const pushMessage = ({ nickname, text }) => {
+    console.log({nickname, text});
     messagesRef.push({nickname, text});
 }
