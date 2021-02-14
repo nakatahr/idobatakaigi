@@ -35,11 +35,22 @@ const MessageList = () => {
             console.log("The read failed: " + errorObject.code);
         });
     }, []);
+
+    const length = messages.length;
+
     return (
         <List className={classes.root}>
             {
-                messages.map(({ key, nickname, text }) => {
-                    return <MessageItem key={key} nickname={nickname} text={text}>item</MessageItem>;
+                messages.map(({ key, nickname, text }, index) => {
+                    const isLastItem = (length === index + 1);
+                    return (
+                        <MessageItem 
+                            key={key} 
+                            nickname={nickname} 
+                            text={text} 
+                            isLastItem={isLastItem}>
+                        </MessageItem>
+                    )
                 })
             }
         </List>
